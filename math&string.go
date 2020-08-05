@@ -8,5 +8,5 @@ import (
 
 func main() {
 	fmt.Println(math.Floor(2.75))
-	fmt.Println(strings.Title("kapat kapat, \nhaydi"))
+	fmt.Println(strings.Title("kapat kapat, \n haydi"))
 }
