@@ -19,17 +19,17 @@ func main() {
 	fmt.Println("Can you guess it?")
 	//fmt.Println(target)
 
-	reader := bufio.NewReader(os.Stdin)
+	reader := bufio.NewReader(os.Stdin) // create a bufio reader to type keyboard input
 	success := false
 	for guesses := 0; guesses < 10; guesses++ {
 		fmt.Println("You have", 10-guesses, "guesses left.")
 		fmt.Print("Make a guess:")
-		input, err := reader.ReadString('\n')
+		input, err := reader.ReadString('\n') //read the what user types until they press Enter
 		if err != nil {
 			log.Fatal(err)
 		}
-		input = strings.TrimSpace(input)
-		guess, err := strconv.Atoi(input)
+		input = strings.TrimSpace(input)  //remove the new line
+		guess, err := strconv.Atoi(input) //conver tthe input string to an integer
 		if err != nil {
 			log.Fatal(err)
 		}
