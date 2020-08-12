@@ -13,4 +13,9 @@ func main() {
 		fmt.Println("!false")
 
 	}
+	if false {
+		fmt.Println("if false")
+	} else if true {
+		fmt.Println("else if true")
+	}
 }
