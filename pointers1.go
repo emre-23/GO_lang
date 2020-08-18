@@ -11,7 +11,8 @@ func main() {
 	fmt.Println(myIntPointer)
 	var myFloat float64
 	fmt.Println(reflect.TypeOf(&myFloat)) */
-	myInt := 4
+
+	/*myInt := 4
 	fmt.Println(myInt)
 	myIntPointer := &myInt
 	*myIntPointer = 8
@@ -22,6 +23,14 @@ func main() {
 	myFloat := 8.7
 	myFloatPointer := &myFloat
 	fmt.Println(myFloatPointer)  // write the pointer itself
-	fmt.Println(*myFloatPointer) // write the value at pointer
+	fmt.Println(*myFloatPointer) // write the value at pointer */
+
+	var myInt int
+	var myIntPointer *int
+	myInt = 42
+	myIntPointer = &myInt
+	//fmt.Println(myInt)
+	//fmt.Println(myIntPointer)
+	fmt.Println(*myIntPointer)
 
 }
