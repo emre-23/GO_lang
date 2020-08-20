@@ -30,5 +30,5 @@ func main() {
 		log.Fatal(err)
 	}
 	celsius := (fahrenheit - 32) * 5 / 9
-	fmt.Println("%0.2f of degrees celsius \n", celsius)
+	fmt.Println("%0.2f degrees Celsius\n", celsius)
 }
