@@ -16,7 +16,8 @@ Write-Host "Move completed"
 $Files = Get-ChildItem -Path "C:\Users\yunus.gormus\Desktop\Hrwebapp_test_backup\*.xls" -File | Where {$_.CreationTime -gt (Get-Date).AddDays(-5)}
 $Date = Get-Date -UFormat %m-%d-%Y
 Compress-Archive -Path $Files.FullName -DestinationPath "C:\Users\yunus.gormus\Desktop\Hrwebapp_test_backup\ $Date.zip"
-Remove-Item C:\Users\yunus.gormus\Desktop\Hrwebapp_test_backup\*.xls
+# Remove-Item C:\Users\yunus.gormus\Desktop\Hrwebapp_test_backup\*.xls
+
 
 # *** To delete 0-byte files having a specific extension zip ***
 #Get-ChildItem -Path "C:\Users\yunus.gormus\Desktop\Hrwebapp_test_backup" -include *.xls -Recurse -Force | Where-Object { $_.PSIsContainer -eq $false -and $_.Length -eq 0 }  | remove-item
