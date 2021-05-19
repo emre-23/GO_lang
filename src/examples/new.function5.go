@@ -5,10 +5,11 @@ import (
 	"fmt"
 	"math"
 )
+
 func floatParts(number float64) (integerPart int, fractionalPart float64) {
 	wholeNumber := math.Floor(number)
-	return int(wholeNumber), number- wholeNumber
-
+	return int(wholeNumber), number - wholeNumber
+}
 func manyReturns() (int, bool, string) {
 	return 1, true, "selam"
 }
