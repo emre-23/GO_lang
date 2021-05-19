@@ -9,13 +9,17 @@ import (
 )
 
 func main() {
-	responSize("https://example.com/")
-	responSize("https://golang.org/")
-	responSize("https://golang.org/doc/")
+	var size int
+	size = responSize("https://example.com/")
+	fmt.Println(size)
+	size = responSize("https://golang.org/")
+	fmt.Println(size)
+	size = responSize("https://golang.org/doc/")
+	fmt.Println(size)
 	time.Sleep(5 * time.Second)
 }
 
-func responSize(url string) {
+func responSize(url string) int {
 	fmt.Println("Getting", url)
 	response, err := http.Get(url)
 	if err != nil {
@@ -26,5 +30,6 @@ func responSize(url string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(len(body))
+	return len(body)
+	//fmt.Println(len(body))
 }
