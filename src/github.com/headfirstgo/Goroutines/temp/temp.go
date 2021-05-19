@@ -5,12 +5,14 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"time"
 )
 
 func main() {
 	responSize("https://example.com/")
 	responSize("https://golang.org/")
 	responSize("https://golang.org/doc/")
+	time.Sleep(5 * time.Second)
 }
 
 func responSize(url string) {
