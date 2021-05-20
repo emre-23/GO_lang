@@ -9,4 +9,6 @@ func main() {
 	greeting.Hello()
 
 	greeting.Hi()
+
+        greeting.Selam()
 }
