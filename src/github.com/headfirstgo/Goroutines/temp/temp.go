@@ -5,22 +5,27 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"time"
 )
 
-func main() {
-	var size int
-	size = responSize("https://example.com/")
-	fmt.Println(size)
-	size = responSize("https://golang.org/")
-	fmt.Println(size)
-	size = responSize("https://golang.org/doc/")
-	fmt.Println(size)
-	time.Sleep(5 * time.Second)
+type Page struct {
+	URL  string
+	Size int
 }
 
-func responSize(url string) int {
-	fmt.Println("Getting", url)
+func main() {
+	pages := make(chan Page)
+	urls := []string{"https://example.com/", "https://golang.org/", "https://golang.org/doc/"}
+	for _, url := range urls {
+		go responSize(url, pages)
+	}
+	for i := 0; i < len(urls); i++ {
+		page := <-pages
+		fmt.Printf("%s: %d\n", page.URL, page.Size)
+	}
+}
+
+func responSize(url string, channel chan Page) {
+	fmt.Println("Gettiing", url)
 	response, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
@@ -30,6 +35,5 @@ func responSize(url string) int {
 	if err != nil {
 		log.Fatal(err)
 	}
-	return len(body)
-	//fmt.Println(len(body))
+	channel <- Page{URL: url, Size: len(body)}
 }
